@@ -1,1 +1,16 @@
-List all users.
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        <ul class="list-unstyled">
+            <% @users.each do |user| %>
+
+                <% if user.profile %>
+            <li>
+                    <% if user.profile.avatar %>
+                        <%= image_tag user.profile.avatar.url(:thumb) %><br>
+                    <% end %>
+            </li>   
+                <% end %>
+            <% end %>
+        </ul>
+    </div>
+</div>
