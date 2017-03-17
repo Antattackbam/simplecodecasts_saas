@@ -5,9 +5,21 @@
 
                 <% if user.profile %>
             <li>
-                    <% if user.profile.avatar %>
-                        <%= image_tag user.profile.avatar.url(:thumb) %><br>
-                    <% end %>
+                <div class="well row <%= cycle('white-bg', '') %>">
+                    <div class="col-sm-4 text-center">
+                        <% if user.profile.avatar %>
+                                <%= link_to user do %>
+                                <%= image_tag user.profile.avatar.url(:thumb) %><br>
+                            <% end %>
+                        <% end %>
+                    </div>
+                    <div>
+                        <%= link_to user do %>
+                            <h2><%= user.profile.first_name%><%= user.profile.last_name %></h2>
+                        <% end %>
+                        <p><%= user.profile.job_title %></p>
+                    </div>
+               </div>
             </li>   
                 <% end %>
             <% end %>
